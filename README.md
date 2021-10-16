@@ -34,7 +34,7 @@ Com o projeto aberto, execute os comandos:
 
     flutter pub get
 
-e
+e após:
 
     flutter run
 
