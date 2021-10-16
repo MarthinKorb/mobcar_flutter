@@ -30,7 +30,13 @@ Clone esse repositório rodando o comando:
 
     git clone https://github.com/MarthinKorb/mobcar_flutter.git
 
-Com o projeto aberto, execute o comando 'flutter pub get' e após, 'flutter run'
+Com o projeto aberto, execute os comandos:
+
+    flutter pub get
+
+e
+
+    flutter run
 
 ---
 
