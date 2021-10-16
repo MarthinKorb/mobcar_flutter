@@ -6,9 +6,6 @@ Aplicação que permite você criar, listar, editar e deletar carros. O cadastro
 
 ---
 
-#### Flutter
-
----
 
 <p align="center" border-radius="4px">
 <img src=".github/mobcar.gif" width=300">
