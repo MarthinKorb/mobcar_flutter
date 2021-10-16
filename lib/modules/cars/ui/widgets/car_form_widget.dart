@@ -8,6 +8,7 @@ import 'package:mobicar_flutter/modules/cars/domain/models/car_year.dart';
 import 'package:mobicar_flutter/modules/cars/domain/models/model.dart';
 import 'package:mobicar_flutter/modules/cars/ui/providers/brands_models_provider.dart';
 import 'package:mobicar_flutter/modules/cars/ui/providers/cars_provider.dart';
+import 'package:mobicar_flutter/shared/constants.dart';
 import 'package:mobicar_flutter/shared/widgets/buttons/button.dart';
 import 'package:provider/provider.dart';
 
@@ -73,7 +74,7 @@ class _CarFormWidgetState extends State<CarFormWidget> {
         Form(
           key: _formKey,
           child: Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: const EdgeInsets.all(paddingLG),
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
@@ -136,7 +137,6 @@ class _CarFormWidgetState extends State<CarFormWidget> {
                         widget.car.modelo = model.nome;
                         _modelId = model.codigo;
                       },
-                      // value: snapshot.data.map((e) => e.codigo).toList(),
                       decoration: InputDecoration(
                         contentPadding:
                             const EdgeInsets.fromLTRB(10, 20, 5, 20),

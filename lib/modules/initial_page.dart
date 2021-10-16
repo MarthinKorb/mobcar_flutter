@@ -20,6 +20,12 @@ class _InitialPageState extends State<InitialPage> {
       appBar: AppBar(
         title: const Text('MOBCAR'),
         backgroundColor: Colors.black,
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.menu_open_outlined),
+            onPressed: () {},
+          ),
+        ],
       ),
       body: Column(
         children: [
@@ -31,32 +37,29 @@ class _InitialPageState extends State<InitialPage> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     const Padding(
-                      padding: EdgeInsets.all(2.0),
+                      padding: EdgeInsets.fromLTRB(12, 8, 12, 0),
                       child: Text(
-                        'Olá, ',
+                        'Olá, Marthin',
                         style: TextStyle(
                           fontWeight: FontWeight.w700,
                           fontSize: 18,
                         ),
                       ),
                     ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      crossAxisAlignment: CrossAxisAlignment.end,
-                      children: [
-                        const Padding(
-                          padding: EdgeInsets.all(2),
-                          child: Text(
-                            'Title 2',
+                    Padding(
+                      padding: const EdgeInsets.all(12.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: [
+                          const Text(
+                            'Veículos cadastrados',
                             style: TextStyle(
                               fontWeight: FontWeight.w400,
                               fontSize: 16,
                             ),
                           ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(2),
-                          child: Button(
+                          Button(
                             text: 'Adicionar Novo',
                             onTap: () {
                               ActionsUtils.showCarFormDialog(
@@ -66,12 +69,12 @@ class _InitialPageState extends State<InitialPage> {
                               );
                             },
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
-                    const Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 2, vertical: 8),
-                      child: Divider(color: Colors.black, height: 1),
+                    Container(
+                      margin: const EdgeInsets.symmetric(horizontal: 12),
+                      child: const Divider(color: Colors.black, height: 1),
                     ),
                   ],
                 ),

@@ -13,10 +13,8 @@ class CarDetailsDialogWidget extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisSize: MainAxisSize.min,
       children: [
-        Center(child: _buildImageContainer()),
+        _buildImageContainer(),
         Container(
-          alignment: Alignment.centerLeft,
-          width: MediaQuery.of(context).size.width * 0.6,
           padding: const EdgeInsets.all(8),
           child: Row(
             children: [
@@ -27,14 +25,17 @@ class CarDetailsDialogWidget extends StatelessWidget {
           ),
         ),
         Container(
-          alignment: Alignment.centerLeft,
-          width: MediaQuery.of(context).size.width * 0.6,
           padding: const EdgeInsets.all(8),
           child: Row(
             children: [
-              Text(car.modelo),
+              Expanded(
+                child: Text(
+                  car.modelo,
+                  overflow: TextOverflow.fade,
+                ),
+              ),
               const Spacer(),
-              Text('R\$ ${car.valorFipe}'),
+              Expanded(child: Text(car.valorFipe)),
             ],
           ),
         ),
@@ -58,13 +59,13 @@ class CarDetailsDialogWidget extends StatelessWidget {
 
   Container _buildImageContainer() {
     return Container(
-      height: 120,
       padding: const EdgeInsets.all(12),
       decoration: const BoxDecoration(
         borderRadius: BorderRadius.all(Radius.circular(12)),
       ),
-      // child: Image.network(carImage),
-      child: Image.asset(carImage),
+      child: Image.asset(
+        carImage,
+      ),
     );
   }
 }

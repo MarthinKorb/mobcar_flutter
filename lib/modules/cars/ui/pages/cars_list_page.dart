@@ -17,10 +17,11 @@ class CarsListPage extends StatelessWidget {
         }
         if (!snapshot.hasData || snapshot.data.isEmpty) {
           return const Center(
-              child: Text(
-            'Nenhum carro cadastrado...',
-            style: TextStyle(fontSize: 18),
-          ));
+            child: Text(
+              'Nenhum carro cadastrado...',
+              style: TextStyle(fontSize: 18),
+            ),
+          );
         }
         final car = snapshot.data;
         return ListView.builder(

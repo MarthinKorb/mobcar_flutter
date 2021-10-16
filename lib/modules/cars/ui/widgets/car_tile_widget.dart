@@ -16,36 +16,40 @@ class CarTileWidget extends StatelessWidget {
     return Column(
       children: [
         ListTile(
-          // leading: Image.network(carImage),
           leading: Image.asset(carImage),
           title: Text(
             car.modelo,
-            style: const TextStyle(fontWeight: FontWeight.bold),
+            style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
           ),
-          subtitle: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          trailing: PopUpMenuButton(car, key: key),
+          subtitle: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisSize: MainAxisSize.min,
             children: [
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Text(car.ano.toString()),
-                  InkWell(
-                    child: const Text(
-                      'Ver Mais',
-                      style: TextStyle(color: Colors.blue),
-                    ),
-                    onTap: () =>
-                        ActionsUtils.showCarDetailsDialog(context, car, key),
-                  ),
-                ],
+              const SizedBox(height: 4),
+              Text(
+                car.ano.toString(),
+                style: const TextStyle(fontSize: 14),
               ),
-              PopUpMenuButton(car, key: key),
+              const SizedBox(height: 4),
+              InkWell(
+                child: const Text(
+                  'Ver Mais',
+                  style: TextStyle(
+                    color: Colors.blue,
+                    fontSize: 14,
+                  ),
+                ),
+                onTap: () =>
+                    ActionsUtils.showCarDetailsDialog(context, car, key),
+              ),
             ],
           ),
         ),
-        const Divider(),
+        Container(
+          margin: const EdgeInsets.only(left: paddinXL, right: paddinXL),
+          child: const Divider(color: Colors.black),
+        )
       ],
     );
   }

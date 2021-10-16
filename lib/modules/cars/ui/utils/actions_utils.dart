@@ -4,7 +4,7 @@ import 'package:mobicar_flutter/modules/cars/domain/models/car.dart';
 import 'package:mobicar_flutter/modules/cars/ui/providers/cars_provider.dart';
 import 'package:mobicar_flutter/modules/cars/ui/widgets/car_details_dialog_widget.dart';
 import 'package:mobicar_flutter/modules/cars/ui/widgets/car_form_widget.dart';
-import 'package:mobicar_flutter/modules/cars/ui/widgets/view_car_dialog.dart';
+import 'package:mobicar_flutter/modules/cars/ui/widgets/details_car_dialog.dart';
 import 'package:mobicar_flutter/shared/widgets/buttons/button.dart';
 
 class ActionsUtils {
@@ -12,7 +12,7 @@ class ActionsUtils {
     showDialog(
       context: context,
       builder: (context) {
-        return ViewCarDialogWidget(
+        return DetailsCarDialogWidget(
           child: CarDetailsDialogWidget(car: car),
           car: car,
           key: key,
@@ -26,7 +26,7 @@ class ActionsUtils {
     showDialog(
       context: context,
       builder: (context) {
-        return ViewCarDialogWidget(
+        return DetailsCarDialogWidget(
           child: CarFormWidget(
             car: car,
             isInsertMode: isInsertMode,
@@ -46,7 +46,7 @@ class ActionsUtils {
     showDialog(
       context: context,
       builder: (context) {
-        return ViewCarDialogWidget(
+        return DetailsCarDialogWidget(
           child: Container(
             alignment: Alignment.centerLeft,
             padding: const EdgeInsets.all(8.0),

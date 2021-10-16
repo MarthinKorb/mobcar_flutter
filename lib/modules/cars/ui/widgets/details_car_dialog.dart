@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:mobicar_flutter/modules/cars/domain/models/car.dart';
+import 'package:mobicar_flutter/shared/constants.dart';
 
-class ViewCarDialogWidget extends StatelessWidget {
+class DetailsCarDialogWidget extends StatelessWidget {
   final Widget child;
   final Car car;
 
-  const ViewCarDialogWidget({@required this.child, @required this.car, Key key})
-      : super(key: key);
+  const DetailsCarDialogWidget({
+    @required this.child,
+    @required this.car,
+    Key key,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -23,16 +27,18 @@ class ViewCarDialogWidget extends StatelessWidget {
 
   Widget _buildDialogHeader(BuildContext context, Car car) {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: const EdgeInsets.all(paddingLG),
       child: Row(
         children: [
           const Icon(Icons.car_repair),
           const SizedBox(width: 8),
-          Text(
-            car.modelo ?? 'Novo Carro',
-            style: const TextStyle(fontWeight: FontWeight.w700, fontSize: 16),
+          Expanded(
+            child: Text(
+              car.modelo ?? 'Novo Carro',
+              overflow: TextOverflow.fade,
+              style: const TextStyle(fontWeight: FontWeight.w700, fontSize: 14),
+            ),
           ),
-          const Spacer(),
           IconButton(
             icon: const Icon(Icons.close),
             onPressed: () => Navigator.pop(context),
