@@ -24,9 +24,9 @@ class BrandsModelsProvider extends ChangeNotifier {
   var _models = <Model>[];
   List<Model> get models => _models;
 
-  Future<List<Model>> getModels({@required codigoMarca}) async {
-    final models =
-        await Modular.get<ModelService>().getModels(codigoMarca: codigoMarca);
+  Future<List<Model>> getModelsByIdBrand({@required codigoMarca}) async {
+    final models = await Modular.get<ModelService>()
+        .getModelsByIdBrand(codigoMarca: codigoMarca);
     _models = models;
     notifyListeners();
     return models;

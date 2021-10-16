@@ -32,23 +32,29 @@ class _CarFormWidgetState extends State<CarFormWidget> {
     var actionMessage = '';
     if (_formKey.currentState.validate()) {
       _formKey.currentState.save();
-      actionMessage = _handleMessage(carsProvider, actionMessage);
+      if (widget.isInsertMode) {
+        carsProvider.create(widget.car);
+        actionMessage = 'salvo';
+      } else {
+        carsProvider.updateCar(widget.car);
+        actionMessage = 'atualizado';
+      }
+      actionMessage = _handleMessage(actionMessage);
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text(
-              '${widget.car.fabricante} ${widget.car.modelo} $actionMessage com sucesso.'),
+            '${widget.car.fabricante} ${widget.car.modelo} $actionMessage com sucesso.',
+          ),
         ),
       );
       Navigator.pop(context);
     }
   }
 
-  String _handleMessage(CarsProvider _carsProvider, String actionMessage) {
+  String _handleMessage(String actionMessage) {
     if (widget.isInsertMode) {
-      _carsProvider.create(widget.car);
       actionMessage = 'salvo';
     } else {
-      _carsProvider.updateCar(widget.car);
       actionMessage = 'atualizado';
     }
     return actionMessage;
@@ -110,7 +116,8 @@ class _CarFormWidgetState extends State<CarFormWidget> {
                         _lastBrandCode != _brandId) {
                       _lastBrandCode = _brandId;
 
-                      carsProvider.getModels(codigoMarca: _brandId ?? 0);
+                      carsProvider.getModelsByIdBrand(
+                          codigoMarca: _brandId ?? 0);
                     }
                     return DropdownButtonFormField(
                       hint: const Text('Modelo'),

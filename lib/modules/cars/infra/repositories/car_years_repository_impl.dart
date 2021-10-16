@@ -3,10 +3,10 @@ import 'package:flutter/foundation.dart';
 import 'package:mobicar_flutter/modules/cars/domain/models/car_year.dart';
 import 'package:mobicar_flutter/modules/cars/domain/repositories/i_car_year.dart';
 
-class CarYearsRepository implements ICarYearsRepository {
+class CarYearsRepositoryImpl implements ICarYearsRepository {
   Dio _dio;
 
-  CarYearsRepository({@required Dio dio}) {
+  CarYearsRepositoryImpl({@required Dio dio}) {
     _dio = dio;
   }
 

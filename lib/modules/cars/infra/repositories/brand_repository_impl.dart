@@ -3,10 +3,10 @@ import 'package:flutter/foundation.dart';
 import 'package:mobicar_flutter/modules/cars/domain/models/brand.dart';
 import 'package:mobicar_flutter/modules/cars/domain/repositories/i_brand_repository.dart';
 
-class BrandRepository implements IBrandRepository {
+class BrandRepositoryImpl implements IBrandRepository {
   Dio _dio;
 
-  BrandRepository({@required Dio dio}) {
+  BrandRepositoryImpl({@required Dio dio}) {
     _dio = dio;
   }
 

@@ -8,8 +8,10 @@ class ModelService {
     _modelRepository = modelRepository;
   }
 
-  Future<List<Model>> getModels({@required codigoMarca}) async {
-    final models = await _modelRepository.getModels(codigoMarca: codigoMarca);
+  Future<List<Model>> getModelsByIdBrand({@required codigoMarca}) async {
+    final models = await _modelRepository.getModelsByIdBrand(
+      codigoMarca: codigoMarca,
+    );
     return models;
   }
 }

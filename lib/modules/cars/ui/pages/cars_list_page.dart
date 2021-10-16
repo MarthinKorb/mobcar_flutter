@@ -16,7 +16,11 @@ class CarsListPage extends StatelessWidget {
           return const Center(child: CircularProgressIndicator());
         }
         if (!snapshot.hasData || snapshot.data.isEmpty) {
-          return const Center(child: Text('Nenhum carro encontrado...'));
+          return const Center(
+              child: Text(
+            'Nenhum carro cadastrado...',
+            style: TextStyle(fontSize: 18),
+          ));
         }
         final car = snapshot.data;
         return ListView.builder(
