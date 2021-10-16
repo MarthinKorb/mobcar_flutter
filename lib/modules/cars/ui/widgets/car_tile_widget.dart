@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mobicar_flutter/modules/cars/domain/models/car.dart';
+import 'package:mobicar_flutter/modules/cars/ui/pages/image_page.dart';
 import 'package:mobicar_flutter/modules/cars/ui/utils/actions_utils.dart';
 import 'package:mobicar_flutter/shared/constants.dart';
 import 'popup_menu_button.dart';
@@ -16,7 +17,21 @@ class CarTileWidget extends StatelessWidget {
     return Column(
       children: [
         ListTile(
-          leading: Image.asset(carImage),
+          leading: GestureDetector(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => ImagePage(
+                    title: car.modelo,
+                    child: Image.asset(carImage),
+                    tag: car.id,
+                  ),
+                ),
+              );
+            },
+            child: Hero(child: Image.asset(carImage), tag: car.id),
+          ),
           title: Text(
             car.modelo,
             style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
@@ -33,15 +48,11 @@ class CarTileWidget extends StatelessWidget {
               ),
               const SizedBox(height: 4),
               InkWell(
-                child: const Text(
-                  'Ver Mais',
-                  style: TextStyle(
-                    color: Colors.blue,
-                    fontSize: 14,
-                  ),
-                ),
-                onTap: () =>
-                    ActionsUtils.showCarDetailsDialog(context, car, key),
+                child: const Text('Ver Mais',
+                    style: TextStyle(color: Colors.blue, fontSize: 14)),
+                onTap: () {
+                  ActionsUtils.showCarDetailsDialog(context, car, key);
+                },
               ),
             ],
           ),

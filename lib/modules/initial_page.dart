@@ -81,8 +81,21 @@ class _InitialPageState extends State<InitialPage> {
               ),
             ],
           ),
-          Expanded(
-            child: CarsListPage(key: widget.key),
+          Expanded(child: CarsListPage(key: widget.key)),
+          Container(
+            height: 50,
+            color: Colors.black,
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: const [
+                Text('© ', style: TextStyle(color: Colors.blue, fontSize: 22)),
+                Text(
+                  ' 2020. All rights reserved to Mobcar.',
+                  style: TextStyle(color: Colors.blue, fontSize: 14),
+                ),
+              ],
+            ),
           ),
         ],
       ),

@@ -46,18 +46,16 @@ class BrandsModelsProvider extends ChangeNotifier {
     return result;
   }
 
-  CarPrice _carPrice = CarPrice(
-    valor: 'R\$ 0,00',
-  );
+  CarPrice _carPrice = CarPrice(valor: '');
   CarPrice get carPrice => _carPrice;
   Future<CarPrice> getCarPrice({
     @required num idBrand,
     @required num idModel,
     @required String carYear,
   }) async {
-    final response = await Modular.get<CarPriceService>()
+    final carPrice = await Modular.get<CarPriceService>()
         .getCarPrice(idBrand: idBrand, idModel: idModel, carYear: carYear);
-    _carPrice = response;
-    return response;
+    _carPrice = carPrice;
+    return carPrice;
   }
 }

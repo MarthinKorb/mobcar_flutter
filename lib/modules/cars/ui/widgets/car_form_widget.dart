@@ -84,13 +84,14 @@ class _CarFormWidgetState extends State<CarFormWidget> {
                       carsProvider.getBrands();
                     }
                     return DropdownButtonFormField(
-                      hint: const Text('Marca'),
+                      isExpanded: true,
+                      hint: const Text('Marcas'),
                       items: carsProvider.brands.map((Brand brand) {
                         return DropdownMenuItem(
                           value: brand,
                           child: Text(
                             brand.nome,
-                            overflow: TextOverflow.fade,
+                            overflow: TextOverflow.ellipsis,
                           ),
                         );
                       }).toList(),
@@ -101,15 +102,11 @@ class _CarFormWidgetState extends State<CarFormWidget> {
                           _brandId = int.tryParse(marca.codigo);
                         });
                       },
-                      decoration: InputDecoration(
-                        contentPadding:
-                            const EdgeInsets.fromLTRB(10, 20, 5, 20),
-                        filled: true,
-                        fillColor: Colors.grey[200],
-                      ),
+                      decoration: inputDecoration(),
                     );
                   },
                 ),
+                const SizedBox(height: paddingLG),
                 Consumer<BrandsModelsProvider>(
                   builder: (context, carsProvider, child) {
                     int _lastBrandCode;
@@ -121,7 +118,8 @@ class _CarFormWidgetState extends State<CarFormWidget> {
                           codigoMarca: _brandId ?? 0);
                     }
                     return DropdownButtonFormField(
-                      hint: const Text('Modelo'),
+                      hint: const Text('Modelos'),
+                      isExpanded: true,
                       items: carsProvider.models.map((Model model) {
                         return DropdownMenuItem(
                           value: model,
@@ -137,15 +135,11 @@ class _CarFormWidgetState extends State<CarFormWidget> {
                         widget.car.modelo = model.nome;
                         _modelId = model.codigo;
                       },
-                      decoration: InputDecoration(
-                        contentPadding:
-                            const EdgeInsets.fromLTRB(10, 20, 5, 20),
-                        filled: true,
-                        fillColor: Colors.grey[200],
-                      ),
+                      decoration: inputDecoration(),
                     );
                   },
                 ),
+                const SizedBox(height: paddingLG),
                 Consumer<BrandsModelsProvider>(
                   builder: (context, brandsModelsProvider, child) {
                     int _lastModelCode;
@@ -160,7 +154,8 @@ class _CarFormWidgetState extends State<CarFormWidget> {
                       );
                     }
                     return DropdownButtonFormField(
-                      hint: const Text('Ano'),
+                      hint: const Text('Anos'),
+                      isExpanded: true,
                       items:
                           brandsModelsProvider.carYear.map((CarYear carYear) {
                         return DropdownMenuItem(
@@ -185,27 +180,11 @@ class _CarFormWidgetState extends State<CarFormWidget> {
                           _carYear = carYear.codigo;
                         });
                       },
-                      decoration: InputDecoration(
-                        contentPadding:
-                            const EdgeInsets.fromLTRB(10, 20, 5, 20),
-                        filled: true,
-                        fillColor: Colors.grey[200],
-                      ),
+                      decoration: inputDecoration(),
                     );
                   },
                 ),
-
-                // TextFormField(
-                //   initialValue: widget.car?.ano?.toString() ?? '',
-                //   decoration: const InputDecoration(
-                //     label: Text('Ano'),
-                //   ),
-                //   textInputAction: TextInputAction.next,
-                //   onSaved: (newValue) {
-                //     widget.car.ano = int.tryParse(newValue);
-                //   },
-                // ),
-
+                const SizedBox(height: paddingLG),
                 FutureBuilder<CarPrice>(
                   future: _carYear == null
                       ? null
@@ -219,12 +198,17 @@ class _CarFormWidgetState extends State<CarFormWidget> {
                       _carPrice.text = snapshot.data.valor;
                     }
                     if (snapshot.connectionState == ConnectionState.waiting) {
-                      return const CircularProgressIndicator();
+                      return Container(
+                        margin: const EdgeInsets.all(12),
+                        child: const CircularProgressIndicator(
+                            color: Colors.black),
+                      );
                     }
                     return TextFormField(
                       controller: _carPrice,
-                      decoration: const InputDecoration(label: Text('Valor')),
+                      decoration: inputDecoration(hintText: 'Valor (R\$)'),
                       textInputAction: TextInputAction.next,
+                      readOnly: true,
                       onSaved: (newValue) {
                         widget.car.valorFipe = newValue;
                       },
@@ -236,7 +220,7 @@ class _CarFormWidgetState extends State<CarFormWidget> {
           ),
         ),
         Container(
-          padding: const EdgeInsets.all(8.0),
+          padding: const EdgeInsets.all(paddingLG),
           child: Row(
             children: [
               const Spacer(),
@@ -254,6 +238,16 @@ class _CarFormWidgetState extends State<CarFormWidget> {
           ),
         ),
       ],
+    );
+  }
+
+  InputDecoration inputDecoration({String hintText = ''}) {
+    return InputDecoration(
+      hintText: hintText,
+      contentPadding: const EdgeInsets.fromLTRB(10, 15, 5, 15),
+      border: const OutlineInputBorder(
+        borderRadius: BorderRadius.all(Radius.circular(8)),
+      ),
     );
   }
 }

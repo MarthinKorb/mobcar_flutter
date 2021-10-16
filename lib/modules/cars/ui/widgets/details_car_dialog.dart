@@ -29,18 +29,19 @@ class DetailsCarDialogWidget extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(paddingLG),
       child: Row(
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          const Icon(Icons.car_repair),
-          const SizedBox(width: 8),
+          const Icon(Icons.car_repair, color: Colors.black, size: 30),
+          const SizedBox(width: 6),
           Expanded(
             child: Text(
-              car.modelo ?? 'Novo Carro',
+              car.modelo ?? 'Cadastro de Veículo',
               overflow: TextOverflow.fade,
-              style: const TextStyle(fontWeight: FontWeight.w700, fontSize: 14),
+              style: const TextStyle(fontWeight: FontWeight.w700, fontSize: 16),
             ),
           ),
           IconButton(
-            icon: const Icon(Icons.close),
+            icon: const Icon(Icons.close, color: Colors.black, size: 30),
             onPressed: () => Navigator.pop(context),
           ),
         ],
