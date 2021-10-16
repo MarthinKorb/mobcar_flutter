@@ -2,7 +2,7 @@
 
 **MOBCAR é um aplicativo desenvolvido em FLUTTER**
 
-Aplicação que permite você criar, listar, editar e deletar carros. O cadastro dos veículos são feitos com dados consultados na **FIPE API HTTP REST**(https://deividfortuna.github.io/fipe/), contendo uma lista de marcas, modelos conforme as marcas, anos disponíveis por modelo e o valor segundo a tabela FIPE.
+Aplicação que permite você criar, listar, editar e deletar carros. O cadastro dos veículos é feito com dados consultados na **FIPE API HTTP REST**(https://deividfortuna.github.io/fipe/), contendo uma lista de marcas, modelos conforme as marcas, anos disponíveis por modelo e o valor segundo a tabela FIPE.
 
 ---
 
