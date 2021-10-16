@@ -11,15 +11,15 @@ Aplicação que permite você criar, listar, editar e deletar carros. O cadastro
 ---
 
 <p align="center" border-radius="4px">
-<img src=".github/exp1.png" width=400">
-<img src=".github/exp2.png" width=400">
-<img src=".github/exp3.png" width=400">
-<img src=".github/exp4.png" width=400">
-<img src=".github/exp5.png" width=400">
-<img src=".github/exp6.png" width=400">
-<img src=".github/exp7.png" width=400">
-<img src=".github/exp8.png" width=400">
-<img src=".github/exp9.png" width=400">
+<img src=".github/exp1.png" width=300">
+<img src=".github/exp2.png" width=300">
+<img src=".github/exp3.png" width=300">
+<img src=".github/exp4.png" width=300">
+<img src=".github/exp5.png" width=300">
+<img src=".github/exp6.png" width=300">
+<img src=".github/exp7.png" width=300">
+<img src=".github/exp8.png" width=300">
+<img src=".github/exp9.png" width=300">
 </p>
 
 ---
