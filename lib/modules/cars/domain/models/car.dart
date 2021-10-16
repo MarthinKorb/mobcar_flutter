@@ -4,8 +4,8 @@ class Car {
   num id;
   String fabricante;
   String modelo;
-  int ano;
-  num valorFipe;
+  String ano;
+  String valorFipe;
   Car({
     this.id,
     this.fabricante,
@@ -18,8 +18,8 @@ class Car {
     num id,
     String fabricante,
     String modelo,
-    int ano,
-    num valorFipe,
+    String ano,
+    String valorFipe,
   }) {
     return Car(
       id: id ?? this.id,
