@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:mobicar_flutter/modules/initial_page.dart';
 import 'package:mobicar_flutter/shared/pages/drawer/mixins/navigation_helper.dart';
 import 'package:mobicar_flutter/shared/pages/menu_2/menu_2.dart';
 import 'package:mobicar_flutter/shared/pages/menu_3/menu_3.dart';
