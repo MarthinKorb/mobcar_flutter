@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:mobicar_flutter/modules/cars/domain/models/car.dart';
+import 'package:mobicar_flutter/shared/pages/drawer/drawer.dart';
 import 'package:mobicar_flutter/shared/widgets/buttons/button.dart';
 import 'cars/ui/pages/cars_list_page.dart';
 import 'cars/ui/utils/actions_utils.dart';
@@ -23,7 +24,11 @@ class _InitialPageState extends State<InitialPage> {
         actions: [
           IconButton(
             icon: const Icon(Icons.menu_open_outlined),
-            onPressed: () {},
+            onPressed: () => Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => DrawerPage(key: widget.key),
+                )),
           ),
         ],
       ),
@@ -39,7 +44,7 @@ class _InitialPageState extends State<InitialPage> {
                     const Padding(
                       padding: EdgeInsets.fromLTRB(12, 8, 12, 0),
                       child: Text(
-                        'Olá, Marthin',
+                        'Olá, Fulano',
                         style: TextStyle(
                           fontWeight: FontWeight.w700,
                           fontSize: 18,

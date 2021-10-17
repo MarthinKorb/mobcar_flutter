@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:mobicar_flutter/modules/cars/domain/models/car.dart';
-import 'package:mobicar_flutter/modules/cars/ui/pages/image_page.dart';
+import 'package:mobicar_flutter/shared/widgets/hero_image_page.dart';
 import 'package:mobicar_flutter/shared/constants.dart';
 import 'package:mobicar_flutter/shared/widgets/buttons/button.dart';
 
@@ -116,7 +116,7 @@ class CarDetailsDialogContentWidget extends StatelessWidget {
   Widget _buildImageContainer(BuildContext context) {
     return GestureDetector(
       onTap: () => Navigator.of(context).push(MaterialPageRoute(
-        builder: (context) => ImagePage(
+        builder: (context) => HeroImagePage(
             title: car.modelo, child: Image.asset(carImage), tag: car.id),
       )),
       child: carImageStack,

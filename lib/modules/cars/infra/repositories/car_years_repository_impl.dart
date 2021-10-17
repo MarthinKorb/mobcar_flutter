@@ -11,8 +11,10 @@ class CarYearsRepositoryImpl implements ICarYearsRepository {
   }
 
   @override
-  Future<List<CarYear>> getCarYears(
-      {@required num idBrand, @required num idModel}) async {
+  Future<List<CarYear>> getCarYears({
+    @required num idBrand,
+    @required num idModel,
+  }) async {
     final response = await _dio.get(
       'https://parallelum.com.br/fipe/api/v1/carros/marcas/$idBrand/modelos/$idModel/anos',
     );

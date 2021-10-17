@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mobicar_flutter/modules/cars/domain/models/car.dart';
-import 'package:mobicar_flutter/modules/cars/ui/pages/image_page.dart';
+import 'package:mobicar_flutter/shared/widgets/hero_image_page.dart';
 import 'package:mobicar_flutter/modules/cars/ui/utils/actions_utils.dart';
 import 'package:mobicar_flutter/shared/constants.dart';
 import 'popup_menu_button.dart';
@@ -22,7 +22,7 @@ class CarTileWidget extends StatelessWidget {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => ImagePage(
+                  builder: (context) => HeroImagePage(
                     title: car.modelo,
                     child: Image.asset(carImage),
                     tag: car.id,

@@ -1,11 +1,11 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-class ImagePage extends StatelessWidget {
+class HeroImagePage extends StatelessWidget {
   final Widget child;
   final Object tag;
   final String title;
-  const ImagePage({
+  const HeroImagePage({
     @required this.title,
     @required this.child,
     @required this.tag,

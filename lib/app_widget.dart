@@ -18,6 +18,7 @@ class AppWidget extends StatelessWidget {
       child: const MaterialApp(
         title: 'Mobicar',
         initialRoute: '/',
+        debugShowCheckedModeBanner: false,
       ).modular(),
     );
   }
