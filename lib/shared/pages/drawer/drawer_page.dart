@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:mobicar_flutter/modules/initial_page.dart';
+import 'package:mobicar_flutter/shared/pages/drawer/mixins/navigation_helper.dart';
+import 'package:mobicar_flutter/shared/pages/menu_2/menu_2.dart';
+import 'package:mobicar_flutter/shared/pages/menu_3/menu_3.dart';
 
 class DrawerPage extends StatefulWidget {
   const DrawerPage({Key key}) : super(key: key);
@@ -9,16 +12,48 @@ class DrawerPage extends StatefulWidget {
   State<DrawerPage> createState() => _DrawerPageState();
 }
 
-class _DrawerPageState extends State<DrawerPage> {
-  int isSelected = 0;
+class _DrawerPageState extends State<DrawerPage> with NavigationHelper {
+  var isHomePageSelected = true;
+  var isMenu2Selected = false;
+  var isMenu3Selected = false;
 
   List<Widget> get drawerItems => [
         _buildDrawerItem(
-            itemTitle: 'Home Page', isSelected: true, onTap: () => {}),
+          itemTitle: 'Home Page',
+          isSelected: isHomePageSelected,
+          onTap: () {
+            setState(() {
+              isHomePageSelected = true;
+              isMenu2Selected = false;
+              isMenu3Selected = false;
+            });
+            Navigator.pop(context);
+          },
+        ),
         _buildDrawerItem(
-            itemTitle: 'Menu 2', isSelected: false, onTap: () => {}),
+          itemTitle: 'Menu 2',
+          isSelected: isMenu2Selected,
+          onTap: () {
+            setState(() {
+              isMenu2Selected = true;
+              isHomePageSelected = false;
+              isMenu3Selected = false;
+            });
+            Navigator.of(context).push(super.createRoute(const Menu2Page()));
+          },
+        ),
         _buildDrawerItem(
-            itemTitle: 'Menu 3', isSelected: false, onTap: () => {}),
+          itemTitle: 'Menu 3',
+          isSelected: isMenu3Selected,
+          onTap: () {
+            setState(() {
+              isMenu3Selected = true;
+              isMenu2Selected = false;
+              isHomePageSelected = false;
+            });
+            Navigator.of(context).push(super.createRoute(const Menu3Page()));
+          },
+        ),
       ];
 
   @override
@@ -31,19 +66,14 @@ class _DrawerPageState extends State<DrawerPage> {
           margin: const EdgeInsets.only(left: 16, top: 16),
           child: const Text(
             'MobCar',
-            style: TextStyle(color: Colors.blue, fontSize: 16),
+            style: TextStyle(color: Colors.blue, fontSize: 18),
           ),
         ),
         leadingWidth: 100,
         actions: [
           IconButton(
             icon: const Icon(Icons.menu_open_outlined),
-            onPressed: () => Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => InitialPage(key: widget.key),
-              ),
-            ),
+            onPressed: () => Navigator.pop(context),
           ),
         ],
       ),
@@ -55,7 +85,16 @@ class _DrawerPageState extends State<DrawerPage> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
-              ...drawerItems,
+              ListView.builder(
+                itemCount: drawerItems.length,
+                shrinkWrap: true,
+                itemBuilder: (context, index) {
+                  return Container(
+                    alignment: Alignment.centerRight,
+                    child: drawerItems[index],
+                  );
+                },
+              ),
               const Spacer(),
               SizedBox(
                 height: 50,

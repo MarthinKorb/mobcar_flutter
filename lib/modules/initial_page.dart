@@ -2,7 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:mobicar_flutter/modules/cars/domain/models/car.dart';
-import 'package:mobicar_flutter/shared/pages/drawer/drawer.dart';
+import 'package:mobicar_flutter/shared/pages/drawer/drawer_page.dart';
+import 'package:mobicar_flutter/shared/pages/drawer/mixins/navigation_helper.dart';
 import 'package:mobicar_flutter/shared/widgets/buttons/button.dart';
 import 'cars/ui/pages/cars_list_page.dart';
 import 'cars/ui/utils/actions_utils.dart';
@@ -14,7 +15,7 @@ class InitialPage extends StatefulWidget {
   State<InitialPage> createState() => _InitialPageState();
 }
 
-class _InitialPageState extends State<InitialPage> {
+class _InitialPageState extends State<InitialPage> with NavigationHelper {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,11 +25,10 @@ class _InitialPageState extends State<InitialPage> {
         actions: [
           IconButton(
             icon: const Icon(Icons.menu_open_outlined),
-            onPressed: () => Navigator.push(
+            onPressed: () => Navigator.pushAndRemoveUntil(
                 context,
-                MaterialPageRoute(
-                  builder: (context) => DrawerPage(key: widget.key),
-                )),
+                super.createRoute(DrawerPage(key: widget.key)),
+                (route) => true),
           ),
         ],
       ),
