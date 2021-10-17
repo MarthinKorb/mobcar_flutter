@@ -2,9 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:mobicar_flutter/modules/cars/domain/models/car.dart';
-import 'package:mobicar_flutter/shared/pages/drawer/drawer_page.dart';
-import 'package:mobicar_flutter/shared/pages/drawer/mixins/navigation_helper.dart';
 import 'package:mobicar_flutter/shared/widgets/buttons/button.dart';
+import 'package:mobicar_flutter/shared/widgets/drawer/drawer_page.dart';
+import 'package:mobicar_flutter/shared/widgets/drawer/mixins/navigation_helper.dart';
 import 'cars/ui/pages/cars_list_page.dart';
 import 'cars/ui/utils/actions_utils.dart';
 

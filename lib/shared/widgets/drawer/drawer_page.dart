@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:mobicar_flutter/shared/pages/drawer/mixins/navigation_helper.dart';
 import 'package:mobicar_flutter/shared/pages/menu_2/menu_2.dart';
 import 'package:mobicar_flutter/shared/pages/menu_3/menu_3.dart';
+import 'package:mobicar_flutter/shared/widgets/drawer/mixins/navigation_helper.dart';
 
 class DrawerPage extends StatefulWidget {
   const DrawerPage({Key key}) : super(key: key);
