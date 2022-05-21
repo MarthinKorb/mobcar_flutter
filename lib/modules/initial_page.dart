@@ -1,6 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/painting.dart';
 import 'package:mobicar_flutter/modules/cars/domain/models/car.dart';
 import 'package:mobicar_flutter/shared/widgets/buttons/button.dart';
 import 'package:mobicar_flutter/shared/widgets/drawer/drawer_page.dart';

@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:mobicar_flutter/modules/cars/domain/models/car.dart';
 import 'package:mobicar_flutter/shared/widgets/hero_image_page.dart';
